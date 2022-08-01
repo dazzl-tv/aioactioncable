@@ -5,6 +5,20 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "aioactioncable"
 authors = [{name = "Emmanuel Riou", email = "emmanuel.riou@protonmail.com"}]
+readme = "README.md"
 license = {file = "LICENSE"}
-classifiers = ["License :: OSI Approved :: MIT License"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Web Environment",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only"
+  ]
+requires-python = ">=3.7"
+dependencies = [
+  "websockets"
+]
 dynamic = ["version", "description"]
+
+[project.urls]
+Home = "https://github.com/dazzl-tv/aioactioncable"
