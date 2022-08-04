@@ -1,4 +1,9 @@
 # aioactioncable: async Action Cable client library
+[![PyPI license](https://img.shields.io/pypi/l/aioactioncable.svg)](https://pypi.python.org/pypi/aioactioncable/)
+[![PyPI version shields.io](https://img.shields.io/pypi/v/aioactioncable.svg)](https://pypi.python.org/pypi/aioactioncable)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/aioactioncable.svg)](https://pypi.python.org/pypi/aioactioncable/)
+
+
 aioactioncable is a python library for building Ruby on Rails [Action Cable](https://guides.rubyonrails.org/action_cable_overview.html) clients.
 
 The library is based on [websockets](https://github.com/aaugustin/websockets) and asyncio.
@@ -29,6 +34,7 @@ Here is a code example to connect to an Action Cable server, subscribe to a chan
 
 import aioactioncable
 import asyncio
+import json
 
 def process(msg)
   print(f'Message received on {json.dumps(identifier)}')
