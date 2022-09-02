@@ -36,13 +36,14 @@ import aioactioncable
 import asyncio
 import json
 
-def process(msg)
+def process(msg, identifier)
+  msg_json = json.loads(msg)
   print(f'Message received on {json.dumps(identifier)}')
   ...
 
 async def ac_recv(uri, identifier):
   async with aioactioncable.connect(uri) as acconnect:
-    subscription = acconnect.subscribe(identifier)
+    subscription = await acconnect.subscribe(identifier)
     async for msg in subscription:
       process(msg, identifier)
 
@@ -73,14 +74,14 @@ async with aioactioncable.connect('wss://example.app') as acconnect:
 ### Subscribe to an Action Cable channel
 
 ```python
-subscription = acconnect.subscribe({'channel': 'ChatChannel'})
+subscription = await acconnect.subscribe({'channel': 'ChatChannel'})
 ```
 
 ### Recv messages on an Action Cable channel
 
 Receive next message on subscription channel:
 ```python
-msg = subscription.recv()
+msg = await subscription.recv()
 ```
 
 Subscription object is an iterable, you can thus iterate over to recv messages in an async for loop:
@@ -92,13 +93,13 @@ async for msg in subscription:
 ### Send messages on an Action Cable channel
 
 ```python
-subscription.send({'action': 'create', 'chatRoom': 'climbing'})
+await subscription.send({'action': 'create', 'chatRoom': 'climbing'})
 ```
 
 ### Unsubscribe from an Action Cable channel
 
 ```python
-subscription.unsubscribe()
+await subscription.unsubscribe()
 ```
 
 ### Close an Action Cable server connection
@@ -107,7 +108,7 @@ Explicit close of the connection is not needed if it is done in an `async with` 
 
 Otherwise:
 ```python
-acconnect.close()
+await acconnect.close()
 ```
 
 ## License
