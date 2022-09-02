@@ -122,13 +122,13 @@ class Connect:
 
     def __handle_disconnect(self, disconnect_data):
         self.logger.info(' Connect was rejected '
-                         '(disconnect type message received')
+                         '(disconnect type message received)')
         if 'reason' in disconnect_data:
-            self.logger.info(" Disconnect reason field is "
-                             f"{disconnect_data['reason']}")
+            self.logger.info(" Disconnect reason field is: "
+                             f"\"{disconnect_data['reason']}\"")
         if 'reconnect' in disconnect_data:
-            self.logger.info(" Disconnect reconnect field is "
-                             f"{disconnect_data['reconnect']}")
+            self.logger.info(" Disconnect reconnect field is: "
+                             f"\"{disconnect_data['reconnect']}\"")
 
     async def __is_welcomed(self):
         data = await self.websocket.recv()
